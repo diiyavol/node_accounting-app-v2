@@ -116,12 +116,8 @@ function createServer() {
     const { id } = req.params;
     const getById = expenses.findIndex((expense) => expense.id === Number(id));
 
-    if (!getById) {
+    if (getById === -1) {
       return res.status(404).send('Not found');
-    }
-
-    if (Object.keys(req.body).length === 0) {
-      return res.status(400).send('Nothing to update');
     }
 
     const [deletedId] = expenses.splice(getById, 1);
@@ -173,12 +169,8 @@ function createServer() {
     const { id } = req.params;
     const getById = users.findIndex((user) => user.id === Number(id));
 
-    if (!getById) {
+    if (getById === -1) {
       return res.status(404).send('Not found');
-    }
-
-    if (Object.keys(req.body).length === 0) {
-      return res.status(400).send('Nothing to update');
     }
 
     const [deletedId] = users.splice(getById, 1);
