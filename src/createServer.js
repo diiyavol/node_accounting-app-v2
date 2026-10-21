@@ -147,7 +147,6 @@ function createServer() {
     if (!getById) {
       return res.status(404).send('Not found');
     }
-
     res.send(getById);
   });
 
